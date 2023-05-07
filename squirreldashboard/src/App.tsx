@@ -1,7 +1,7 @@
 import { Sidenav }  from './Sidenav'
 import { Routes, Route, createBrowserRouter,Outlet, RouterProvider ,ScrollRestoration, Navigate } from 'react-router-dom'
 import Students from './Students'
-import { getUserData } from './api'
+import { getChoices, getModules, getQuestion, getUserData, getUserResults } from './api'
 const Layout=()=>{
   return(
    
@@ -28,6 +28,26 @@ const router =  createBrowserRouter(
         path: '/students',
         element: <Students/>,
         loader: getUserData,
+      },
+      {
+        path: '/modules',
+        element: <Students/>,
+        loader: getModules,
+      },
+      {
+        path: '/question',
+        element: <Students/>,
+        loader: getQuestion,
+      },
+      {
+        path: '/results',
+        element: <Students/>,
+        loader: getUserResults,
+      },
+      {
+        path: '/choices',
+        element: <Students/>,
+        loader: getChoices,
       },
       // error page
       {
