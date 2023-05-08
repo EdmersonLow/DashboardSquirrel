@@ -7,8 +7,9 @@ export default function Students() {
     const data:any = useLoaderData(); // export the data variable
     
     useEffect(() => {
-        setUsers(data.data.users);
-    }, [data]);
+        setUsers(data.data);
+        console.log(users);
+    },[data]);
     
     return (
         <div className="flex flex-col">
@@ -20,57 +21,48 @@ export default function Students() {
                                 <tr>
                                     <th
                                         scope="col"
-                                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                        className="px-0 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center"
                                     >
                                         Student ID
                                     </th>
                                     <th
                                         scope="col"
-                                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center"
                                     >   
-                                        First Name
+                                        Student Name
                                     </th>
                                     <th
                                         scope="col"
-                                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center"
                                     >   
-                                        Last Name
+                                        Age
                                     </th>   
                                     <th 
                                         scope="col"
-                                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"  
+                                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center"  
                                     >   
-                                        Email
-                                    </th>
-                                    <th
-                                        scope="col"
-                                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"  
-                                    >   
-                                        Password
+                                        Phone Number
                                     </th>
                                 </tr>
                             </thead>
                             <tbody className="bg-white divide-y divide-gray-200">
                                 {users.map((user) => (
-                                    <tr key={user.id}>
-                                        <td className="px-6 py-4 whitespace-nowrap">
-                                            <div className="flex items-center">
-                                                <div className="ml-4">
-                                                    <div className="text-sm font-medium text-gray-900">{user.id}</div>
+                                    <tr key={user.student_id}>
+                                        <td className="px-0 py-4 whitespace-nowrap">
+                                            <div className="flex items-center justify-center">
+                                                <div>
+                                                    <div className="text-sm font-medium text-gray-900 text-center">{user.student_id}</div>
                                                 </div>
                                             </div>
                                         </td>
                                         <td className="px-6 py-4 whitespace-nowrap">
-                                            <div className="text-sm text-gray-900">{user.firstName}</div>
+                                            <div className="text-sm text-gray-900 text-center">{user.student_name}</div>
                                         </td>
                                         <td className="px-6 py-4 whitespace-nowrap">
-                                            <div className="text-sm text-gray-900">{user.lastName}</div>
+                                            <div className="text-sm text-gray-900 text-center">{user.student_age}</div>
                                         </td>
                                         <td className="px-6 py-4 whitespace-nowrap">
-                                            <div className="text-sm text-gray-900">{user.email}</div>
-                                        </td>
-                                        <td className="px-6 py-4 whitespace-nowrap">
-                                            <div className="text-sm text-gray-900">{user.password}</div>
+                                            <div className="text-sm text-gray-900 text-center">{user.phone_number}</div>
                                         </td>
                                     </tr>
                                 ))}

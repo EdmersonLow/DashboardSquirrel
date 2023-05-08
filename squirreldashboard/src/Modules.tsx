@@ -7,8 +7,8 @@ export default function Modules() {
     const data:any = useLoaderData(); // export the data variable
     
     useEffect(() => {
-        setUsers(data.data.users);
-    }, [data]);
+        setUsers(data.data);
+    },[data]);
     
     return (
         <div className="flex flex-col">
@@ -20,57 +20,30 @@ export default function Modules() {
                                 <tr>
                                     <th
                                         scope="col"
-                                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center"
                                     >
-                                        Student ID
+                                        Module ID
                                     </th>
                                     <th
                                         scope="col"
-                                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center"
                                     >   
-                                        First Name
-                                    </th>
-                                    <th
-                                        scope="col"
-                                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                                    >   
-                                        Last Name
-                                    </th>   
-                                    <th 
-                                        scope="col"
-                                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"  
-                                    >   
-                                        Email
-                                    </th>
-                                    <th
-                                        scope="col"
-                                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"  
-                                    >   
-                                        Password
+                                        Module Name
                                     </th>
                                 </tr>
                             </thead>
                             <tbody className="bg-white divide-y divide-gray-200">
                                 {users.map((user) => (
-                                    <tr key={user.id}>
+                                    <tr key={user.module_id}>
                                         <td className="px-6 py-4 whitespace-nowrap">
-                                            <div className="flex items-center">
-                                                <div className="ml-4">
-                                                    <div className="text-sm font-medium text-gray-900">{user.id}</div>
+                                            <div className="flex items-center justify-center">
+                                                <div>
+                                                    <div className="text-sm font-medium text-gray-900 text-center">{user.module_id}</div>
                                                 </div>
                                             </div>
                                         </td>
                                         <td className="px-6 py-4 whitespace-nowrap">
-                                            <div className="text-sm text-gray-900">{user.firstName}</div>
-                                        </td>
-                                        <td className="px-6 py-4 whitespace-nowrap">
-                                            <div className="text-sm text-gray-900">{user.lastName}</div>
-                                        </td>
-                                        <td className="px-6 py-4 whitespace-nowrap">
-                                            <div className="text-sm text-gray-900">{user.email}</div>
-                                        </td>
-                                        <td className="px-6 py-4 whitespace-nowrap">
-                                            <div className="text-sm text-gray-900">{user.password}</div>
+                                            <div className="text-sm text-gray-900 text-center">{user.module_name}</div>
                                         </td>
                                     </tr>
                                 ))}
